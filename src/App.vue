@@ -35,8 +35,13 @@ export default {
       <button @click="run">Roll</button>
     </div>
     <div class="output">
-      <div v-for="(dice, index) in res" :key="index" class="dice">Dice {{ index + 1 }}: {{ dice }}</div>
       <h1>Total: {{ total }}</h1>
+      <div class="die">
+
+        <div v-for="(dice, index) in res" :key="index" class="dice">
+        <p>{{ dice }}</p>  
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -48,7 +53,21 @@ export default {
 .output {
   display: flex;
 }
+.die{
+  display: flex;
+  flex-wrap: wrap;
+}
 .dice {
   background-color: green;
+  height: 42px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  margin: 1%;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+p{
+  color: azure;
 }
 </style>
