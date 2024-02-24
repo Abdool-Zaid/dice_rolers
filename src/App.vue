@@ -29,9 +29,9 @@ export default {
   <div>
     <div class="input">
       <label for="dice_count">Amount of dice : {{ ammount }}</label>
-      <input type="range" name="dice_count" id="dice_count" v-model="ammount" min="1" max="66">
+      <input type="number" name="dice_count" id="dice_count" v-model="ammount" min="1" max="66">
       <label for="range">Range 1- {{ range }}</label>
-      <input type="range" name="range" id="range" v-model="range" min="1" max="100">
+      <input type="number" name="range" id="range" v-model="range" min="1" max="100">
       <button @click="run">Roll</button>
     </div>
     <div class="output">
