@@ -64,7 +64,7 @@ export default {
         <div class="modal-body">
           <!-- colour changer -->
           <div class="d-flex flex-column">
-            <div class="dice "><p class="mt-auto mb-auto">1</p></div>
+            <div class="dice"><p class="mt-auto mb-auto">1</p></div>
             <label for="dice_count">red </label>
             <input
               type="range"
@@ -113,12 +113,67 @@ export default {
             <button
               @click="
                 ammount = 1;
+                range = 4;
+              "
+              class="btn btn-secondary m-1"
+            >
+              1d4
+            </button>
+            <button
+              @click="
+                ammount = 1;
+                range = 6;
+              "
+              class="btn btn-secondary m-1"
+            >
+              1d6
+            </button>
+            <button
+              @click="
+                ammount = 1;
+                range = 8;
+              "
+              class="btn btn-secondary m-1"
+            >
+              1d8
+            </button>
+            <button
+              @click="
+                ammount = 1;
+                range = 10;
+              "
+              class="btn btn-secondary m-1"
+            >
+              1d10
+            </button>
+            <button
+              @click="
+                ammount = 1;
+                range = 12;
+              "
+              class="btn btn-secondary m-1"
+            >
+              1d12
+            </button>
+            <button
+              @click="
+                ammount = 1;
                 range = 20;
               "
-              class="btn btn-secondary"
+              class="btn btn-secondary m-1"
             >
               1d20
             </button>
+            <button
+              @click="
+                ammount = 1;
+                range = 100;
+              "
+              class="btn btn-secondary m-1"
+            >
+              1d100
+            </button>
+           
           </div>
         </div>
         <div class="modal-footer">
@@ -191,7 +246,7 @@ export default {
 .dice {
   background-color: green;
   height: 42px;
-  width:42px;
+  width: 42px;
   border-radius: 50%;
   margin: 1%;
   display: flex;
