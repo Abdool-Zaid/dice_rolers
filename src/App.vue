@@ -15,8 +15,8 @@ export default {
       a: 1,
     };
   },
-  updated(){
-    this.alt_colour()
+  updated() {
+    this.alt_colour();
   },
   methods: {
     gen_ran(inp) {
@@ -32,11 +32,10 @@ export default {
       }
     },
     alt_colour() {
-
-      let el=document.querySelectorAll('.dice');
-      el.forEach((dice)=>{
+      let el = document.querySelectorAll(".dice");
+      el.forEach((dice) => {
         dice.style.backgroundColor = `rgba(${r.value},${g.value},${b.value},${a.value})`;
-      })
+      });
     },
   },
 };
@@ -54,7 +53,7 @@ export default {
     <div class="modal-dialog modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalLabel">settings</h5>
           <button
             type="button"
             class="btn-close"
@@ -65,8 +64,8 @@ export default {
         <div class="modal-body">
           <!-- colour changer -->
           <div class="d-flex flex-column">
-            <div class="dice"><p>1</p></div>
-            <label for="dice_count">r </label>
+            <div class="dice "><p class="mt-auto mb-auto">1</p></div>
+            <label for="dice_count">red </label>
             <input
               type="range"
               name="r"
@@ -76,7 +75,7 @@ export default {
               max="255"
               @change="alt_colour()"
             />
-            <label for="dice_count">g </label>
+            <label for="dice_count">green </label>
             <input
               type="range"
               name="g"
@@ -86,7 +85,7 @@ export default {
               max="255"
               @change="alt_colour()"
             />
-            <label for="dice_count">b </label>
+            <label for="dice_count">blue </label>
             <input
               type="range"
               name="b"
@@ -96,7 +95,7 @@ export default {
               max="255"
               @change="alt_colour()"
             />
-            <label for="dice_count">a </label>
+            <label for="dice_count">alpha </label>
             <input
               type="range"
               name="a"
@@ -104,11 +103,23 @@ export default {
               v-model="a"
               min="0"
               max="1"
+              step="0.01"
               @change="alt_colour()"
             />
           </div>
           <!-- colour changer -->
           <!-- config goes here -->
+          <div>
+            <button
+              @click="
+                ammount = 1;
+                range = 20;
+              "
+              class="btn btn-secondary"
+            >
+              1d20
+            </button>
+          </div>
         </div>
         <div class="modal-footer">
           <button
@@ -124,7 +135,15 @@ export default {
   </div>
 
   <div>
-    <div class="input">
+    <button
+      type="button"
+      class="btn btn-secondary"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+    >
+      config
+    </button>
+    <div class="d-flex">
       <label for="dice_count">Amount of dice : </label>
       <input
         type="number"
@@ -143,22 +162,15 @@ export default {
         min="1"
         max="100"
       />
-      <button @click="run">Roll</button>
+      <button @click="run" class="btn btn-dark m-1">Roll</button>
     </div>
     <div class="output">
       <!-- Button trigger modal -->
-      <button
-        type="button"
-        class="btn btn-primary"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
-      >
-        config
-      </button>
+
       <h1>Total: {{ total }}</h1>
       <div class="die">
         <div v-for="(dice, index) in res" :key="index" class="dice">
-          <p>{{ dice }}</p>
+          <p class="mt-auto mb-auto">{{ dice }}</p>
         </div>
       </div>
     </div>
@@ -179,7 +191,7 @@ export default {
 .dice {
   background-color: green;
   height: 42px;
-  aspect-ratio: 1;
+  width:42px;
   border-radius: 50%;
   margin: 1%;
   display: flex;
