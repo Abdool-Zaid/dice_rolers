@@ -15,6 +15,9 @@ export default {
       a: 1,
     };
   },
+  updated(){
+    this.alt_colour()
+  },
   methods: {
     gen_ran(inp) {
       return Math.max(1, Math.round(Math.random() * inp));
@@ -29,9 +32,11 @@ export default {
       }
     },
     alt_colour() {
-      let el = document.querySelector(".dice");
-      el.style.backgroundColour = `rgba(${r},${g},${b},${a})`;
-      console.log("colour should've changed");
+
+      let el=document.querySelectorAll('.dice');
+      el.forEach((dice)=>{
+        dice.style.backgroundColor = `rgba(${r.value},${g.value},${b.value},${a.value})`;
+      })
     },
   },
 };
@@ -98,7 +103,7 @@ export default {
               id="a"
               v-model="a"
               min="0"
-              max="255"
+              max="1"
               @change="alt_colour()"
             />
           </div>
